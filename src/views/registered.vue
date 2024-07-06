@@ -23,22 +23,22 @@
                 <Lock/>
               </el-icon>
             </template>
-            <template #append>
-              <el-button @click="forgetPass">忘记密码</el-button>
+          </el-input>
+        </el-form-item>
+        <!--确认密码-->
+        <el-form-item>
+          <el-input v-model="loginForm.password" type="password" placeholder="请确认密码">
+            <template #prefix>
+              <el-icon class="el-input__icon">
+                <Lock/>
+              </el-icon>
             </template>
           </el-input>
         </el-form-item>
-        <!-- 记住我和忘记密码 -->
-        <div class="rememberMe">
-          <el-checkbox v-model="loginForm.rememberMe" label="记住我" size="large"/>
-          <!-- 忘记密码 -->
-          <el-text class="registered" type="primary" @click="goRegistered">立即注册</el-text>
-        </div>
-        <!-- 分割线 -->
 
-        <el-form-item style="margin-bottom: 10px">
+        <el-form-item>
           <!-- 按钮 -->
-          <el-button style="width: 100%;" type="primary" @click="handleLogin">登录</el-button>
+          <el-button style="width: 100%;" type="primary" @click="handleRegistered">注册</el-button>
         </el-form-item>
       </el-form>
     </div>
@@ -57,20 +57,11 @@ const loginForm = ref({
   rememberMe: undefined
 })
 
-// 忘记密码
-function forgetPass(){
-  alert("找回密码")
-}
 
 // 声明登录录方法
-function handleLogin() {
-  alert("登录按钮!")
-  router.push('/index')
-}
-
-// 立即注册
-function goRegistered(){
-  router.push('/registered');
+function handleRegistered() {
+  alert("注册成功！")
+  router.push('/login')
 }
 </script>
 
@@ -82,6 +73,7 @@ function goRegistered(){
   height: 100vh;
   display: flex;
   justify-content: flex-end;
+
   .login_form {
     display: flex;
     justify-content: center;
@@ -94,15 +86,6 @@ function goRegistered(){
     .title {
       margin-bottom: 20px;
     }
-    .rememberMe {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 10px;
-      .registered {
-        cursor: pointer;
-      }
-    }
   }
 }
 
@@ -110,6 +93,7 @@ function goRegistered(){
 .el-form {
   width: 60%;
 }
+
 .el-form-item {
   width: 100%;
 }
