@@ -1,11 +1,11 @@
 <template>
-成绩
+成绩计算
 </template>
 
 <script setup>
 
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 
 </style>

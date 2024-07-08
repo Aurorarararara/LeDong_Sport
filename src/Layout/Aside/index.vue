@@ -7,45 +7,91 @@
         default-active="2"
         text-color="#b1becd"
         active-text-color="#336cab"
-        :router = "true"
+        :router="true"
     >
-      <el-menu-item v-for="item in ld">
+      <!-- 一级菜单 -->
+      <el-sub-menu :index="item.id+''" v-for="item in menulist" :key="item.id">
+        <!-- 一级菜单模板区域 -->
         <template #title>
-          <el-icon>
-            <location/>
-          </el-icon>
-          <span>{{item.name}}</span>
+          <span>{{item.authName}}</span>
         </template>
-      </el-menu-item>
+        <!-- 二级菜单 -->
+        <el-menu-item :index="'/'+subItem.path" v-for="subItem in item.children" :key="subItem.id">
+          <template #title>
+            <span>{{subItem.authName}}</span>
+          </template>
+        </el-menu-item>
+      </el-sub-menu>
     </el-menu>
   </div>
 </template>
 
 <script setup>
-import {Location} from "@element-plus/icons-vue";
 import {ref} from "vue";
-import router from "@/router/index.js";
 
-const ld = ref([
+
+
+const menulist = ref([
   {
-    path:'/notice',
-    name:'公告'
+    id: 1,
+    authName: '公告',
+    children: [
+      {
+        id:11,
+        path:'lesson',
+        authName: '课程安排'
+      },
+      {
+        id: 12,
+        path: 'notice',
+        authName: '课程通知',
+      },
+      {
+        id: 13,
+        path: 'teachingMaterials',
+        authName: '教学资料',
+      },
+    ],
   },
   {
-    path:'/notice',
-    name:'运动打卡'
+    id: 2,
+    authName: '体育打卡',
+    children: [
+      {
+        id: 21,
+        path: 'sportCheckIn',
+        authName: '运动打卡',
+      },
+      {
+        id: 22,
+        path: 'gradeCalculate',
+        authName: '成绩计算',
+      },
+    ],
   },
   {
-    path:'/notice',
-    name:'成绩计算'
-  }
+    id: 3,
+    authName: 'Settings',
+    children: [
+      {
+        id: 31,
+        path: 'general',
+        authName: 'General',
+      },
+      {
+        id: 32,
+        path: 'security',
+        authName: 'Security',
+      },
+    ],
+  },
 ])
 
 
 </script>
 
 <style scoped>
-.ledong_title{
+.ledong_title {
   color: white;
   height: 60px;
   display: flex;
