@@ -17,7 +17,8 @@
                     </span>
           <template #dropdown>
             <el-dropdown-menu>
-              <el-dropdown-item>个人中心</el-dropdown-item>
+              <el-dropdown-item @click.native="handleSelf">个人中心</el-dropdown-item>
+              <el-dropdown-item>管理</el-dropdown-item>
               <el-dropdown-item divided>退出登录</el-dropdown-item>
             </el-dropdown-menu>
           </template>
@@ -30,9 +31,16 @@
 <script setup>
 import {ref} from 'vue'
 import {ArrowDown} from "@element-plus/icons-vue";
+import router from "@/router/index.js";
 const nickname = ref("nickname")
 const avatar = ref('https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg')
-const breadcrumbList = ref(['系统管理','用户管理'])
+
+function handleSelf(){
+  router.push('/self')
+}
+
+
+
 </script>
 
 <style scoped>

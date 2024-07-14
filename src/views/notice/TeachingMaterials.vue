@@ -11,7 +11,7 @@
       />
     </el-col>
     <el-col :span="7">
-      <el-button>批量下载</el-button>
+      <el-button type="primary">批量下载</el-button>
     </el-col>
   </el-row>
   <el-table :data="tableData" border style="width: 100%">

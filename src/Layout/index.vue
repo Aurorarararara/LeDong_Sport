@@ -8,7 +8,7 @@
         <el-header>
           <Header/>
         </el-header>
-        <el-main>
+        <el-main class="el-main">
           <Main/>
         </el-main>
       </el-container>
@@ -40,6 +40,10 @@ function getHeight() {
 </script>
 
 <style scoped>
+.el-main{
+  height: 90vh;
+}
+
 .aside {
   background-color: #2f4156;
 }

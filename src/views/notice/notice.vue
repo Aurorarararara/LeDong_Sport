@@ -1,57 +1,121 @@
+<!-- src/views/AnnouncementPage.vue -->
 <template>
-  <div class="head">公告栏</div>
-  <el-card class="announcement-board">
-    <el-timeline>
-      <el-timeline-item
-          v-for="item in items"
-          :key="item.id"
-          :timestamp="item.date"
-          placement="top"
-      >
-        <el-card>
-          <h4>{{ item.title }}</h4>
-          <p>{{ item.content }}</p>
+  <el-container>
+    <el-header>
+      <h2>公告</h2>
+    </el-header>
+    <el-main>
+      <div class="announcement-container">
+        <el-card v-for="announcement in announcements" :key="announcement.id" class="announcement-card" shadow="hover">
+          <h3 class="announcement-title">{{ announcement.title }}</h3>
+          <p class="announcement-content">{{ announcement.content }}</p>
+          <el-divider></el-divider>
+          <el-row>
+            <el-col :span="12">
+              <el-tag type="info">{{ announcement.date }}</el-tag>
+            </el-col>
+            <el-col :span="12" class="author">
+              <el-tag type="success">{{ announcement.author }}</el-tag>
+            </el-col>
+          </el-row>
         </el-card>
-      </el-timeline-item>
-    </el-timeline>
-  </el-card>
+      </div>
+    </el-main>
+  </el-container>
 </template>
 
-<script setup>
-import { ref } from 'vue'
-
-const items = ref([
-  { id: 1, date: '2024-07-07', title: '跨栏盛宴', content: '这里是公告内容 1...' },
-  { id: 2, date: '2024-05-14', title: '公告标题 2', content: '这里是公告内容 2...' },
-  { id: 3, date: '2024-05-14', title: '公告标题 2', content: '这里是公告内容 2...' },
-  { id: 4, date: '2024-05-14', title: '公告标题 2', content: '这里是公告内容 2...' },
-  { id: 5, date: '2024-05-14', title: '公告标题 2', content: '这里是公告内容 2...' },
-  { id: 6, date: '2024-05-14', title: '公告标题 2', content: '这里是公告内容 2...' },
-  { id: 7, date: '2024-05-14', title: '公告标题 2', content: '这里是公告内容 2...' },
-  { id: 8, date: '2024-05-14', title: '公告标题 2', content: '这里是公告内容 2...' },
-  { id: 9, date: '2024-05-14', title: '公告标题 2', content: '这里是公告内容 2...' },
-  { id: 10, date: '2024-05-14', title: '公告标题 2', content: '这里是公告内容 2...' },
-  { id: 11, date: '2024-05-14', title: '公告标题 2', content: '这里是公告内容 2...' },
-  { id: 12, date: '2024-05-14', title: '公告标题 2', content: '这里是公告内容 2...' },
-  { id: 13, date: '2024-05-14', title: '公告标题 2', content: '这里是公告内容 2...' },
-  { id: 14, date: '2024-05-14', title: '公告标题 2', content: '这里是公告内容 2...' },
-  { id: 15, date: '2024-05-14', title: '公告标题 2', content: '这里是公告内容 2...' },
-  { id: 16, date: '2024-05-14', title: '公告标题 2', content: '这里是公告内容 10...' },
-])
-
-// 对 items 按 id 进行降序排列
-items.value.sort((a, b) => b.id - a.id);
+<script>
+export default {
+  name: 'AnnouncementPage',
+  data() {
+    return {
+      announcements: [
+        {
+          id: 1,
+          title: '系统维护通知',
+          content: '由于系统维护，本周六将暂停服务。',
+          date: '2024-07-15',
+          author: '管理员'
+        },{
+          id: 1,
+          title: '系统维护通知',
+          content: '由于系统维护，本周六将暂停服务。',
+          date: '2024-07-15',
+          author: '管理员'
+        },{
+          id: 1,
+          title: '系统维护通知',
+          content: '由于系统维护，本周六将暂停服务。',
+          date: '2024-07-15',
+          author: '管理员'
+        },{
+          id: 1,
+          title: '系统维护通知',
+          content: '由于系统维护，本周六将暂停服务。',
+          date: '2024-07-15',
+          author: '管理员'
+        },{
+          id: 1,
+          title: '系统维护通知',
+          content: '由于系统维护，本周六将暂停服务。',
+          date: '2024-07-15',
+          author: '管理员'
+        },{
+          id: 1,
+          title: '系统维护通知',
+          content: '由于系统维护，本周六将暂停服务。',
+          date: '2024-07-15',
+          author: '管理员'
+        },{
+          id: 1,
+          title: '系统维护通知',
+          content: '由于系统维护，本周六将暂停服务。',
+          date: '2024-07-15',
+          author: '管理员'
+        },{
+          id: 1,
+          title: '系统维护通知',
+          content: '由于系统维护，本周六将暂停服务。',
+          date: '2024-07-15',
+          author: '管理员'
+        },{
+          id: 1,
+          title: '系统维护通知',
+          content: '由于系统维护，本周六将暂停服务。',
+          date: '2024-07-15',
+          author: '管理员'
+        },
+        // 其他公告内容...
+      ]
+    }
+  }
+}
 </script>
 
-<style>
-.head{
-  margin-left: 40px;
-  font-size: 20px;
+<style scoped>
+.announcement-container {
+  padding: 20px;
 }
 
-.announcement-board {
-  margin: 30px;
-  max-height: 700px; /* 设置最大高度 */
-  overflow-y: auto; /* 启用垂直滚动条 */
+.announcement-card {
+  margin-bottom: 20px;
+  transition: box-shadow 0.3s ease; /* 添加过渡效果 */
+}
+
+.announcement-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.announcement-title {
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.announcement-content {
+  line-height: 1.6;
+}
+
+.author {
+  text-align: right;
 }
 </style>

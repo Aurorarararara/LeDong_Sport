@@ -8,6 +8,7 @@
         text-color="#b1becd"
         active-text-color="#336cab"
         :router="true"
+        default-openeds="['1','2']"
     >
       <!-- 一级菜单 -->
       <el-sub-menu :index="item.id+''" v-for="item in menulist" :key="item.id">
@@ -66,22 +67,6 @@ const menulist = ref([
         id: 22,
         path: 'gradeCalculate',
         authName: '成绩计算',
-      },
-    ],
-  },
-  {
-    id: 3,
-    authName: 'Settings',
-    children: [
-      {
-        id: 31,
-        path: 'general',
-        authName: 'General',
-      },
-      {
-        id: 32,
-        path: 'security',
-        authName: 'Security',
       },
     ],
   },

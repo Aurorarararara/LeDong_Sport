@@ -7,6 +7,7 @@ import SportCheckIn from "@/views/checkIn/SportCheckIn.vue";
 import TeachingMaterials from "@/views/notice/TeachingMaterials.vue";
 import notice from "@/views/notice/notice.vue";
 import lesson from "@/views/notice/lesson.vue";
+import selfMessage from "@/views/self/selfMessage.vue";
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -54,6 +55,11 @@ const router = createRouter({
                     path: '/teachingMaterials',
                     name: 'teachingMaterials',
                     component: TeachingMaterials
+                },
+                {
+                    path:'/self',
+                    name:'self',
+                    component:selfMessage
                 }
             ]
         },
